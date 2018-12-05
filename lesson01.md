@@ -189,7 +189,215 @@ p {
 
 ## 使用选择器
 
+像前面所说的，选择器指示设置样式的HTML元素。充分了解如何使用选择器以及如何利用选择器非常重要。第一步是熟悉不同类型的选择器。我们会从最常见的选择器开始：类型、类和ID选择器。
 
+### 类型选择器
 
+类型选择器按元素类型定位元素。例如，如果我们想要定位所有的除法元素&lt;div&gt;，我们将使用div的类型选择器。以下代码显示了除法元素的类型选择器以及它选择的相应HTML。
 
+CSS：
+
+```
+<div>{...}
+```
+
+HTML：
+
+```
+<div>...</div>          
+<div>...</div>
+```
+
+### 类选择器
+
+类选择器允许我们根据元素的类属性值选择元素，比类型选择器更加具体，因为它们选择特定的元素组而不是一种类型的所有元素。
+
+类选择器允许我们通过在多个元素中使用相同的类属性值，一次将相同的样式应用于不同的元素。
+
+在CSS中，类由一个先导句点来表示，接着是类属性值。在这里，类选择器将选择包含awesome的类属性值的任何元素，包括division和parameter元素。
+
+CSS：
+
+```
+.awesome { ... }
+```
+
+HTML：
+
+```
+<div class="awesome">...</div>
+<p class="awesome">...</p>
+```
+
+### ID选择器
+
+ID选择器比类选择器更加精确，因为它们一次只针对一个元素。就像类选择器使用元素的类属性值作为选择器一样，ID选择器使用元素的id属性值作为选择器。
+
+无论它们出现在哪种类型的元素上，id属性值每页只能使用一次。如果使用它们，应该用于重要的元素。
+
+在CSS中，ID选择器由符号＃表示，后跟id属性值。这里ID选择器只会选择包含shayhowe的id属性值的元素。
+
+CSS：
+
+```
+#shayhowe { ... }
+```
+
+HTML：
+
+```
+<div id="shayhowe">...</div>
+```
+
+### 其他选择器
+
+选择器功能非常强大，这里列出的选择器是我们遇到的最常见的选择器。这些选择器只是一个开始。有许多更先进并且容易获得的选择器。当你习惯选择器时，不要害怕查看一些更高级的选择器。
+
+现在一切都走到一起了。我们在HTML中的页面中添加元素，然后选择这些元素并使用CSS样式。现在让我们连接HTML和CSS之间的点，并让这两种语言一起工作。
+
+## 引用CSS
+
+为了使我们的CSS与HTML交谈，我们需要在HTML中引用CSS文件。引用CSS的最佳实践是将所有样式包含在单个外部样式表中，该样式表从HTML文档的&lt;head&gt;元素中引用。使用单个外部样式表，我们可以在整个网站上使用相同的样式，并在整个网站上快速进行更改。
+
+> #### 添加CSS的其他选项
+>
+> 引用CSS的其他选项包括使用内部和内联样式。你可能会遇到这些选项，但他们通常不赞成，因为他们使更新网站繁琐和笨拙。
+
+要创建外部CSS样式表，我们将再次使用我们选择的文本编辑器来创建具有.css文件扩展名的新的纯文本文件。我们的CSS文件应保存在HTML文件所在的同一文件夹或子文件夹中。
+
+在HTML文档的&lt;head&gt;元素中，&lt;link&gt;元素用于定义HTML文件和CSS文件之间的关系。因为我们链接到CSS，所以我们使用带有样式表值的rel属性来指定它们的关系。此外，href（或超链接引用）属性用于标识CSS文件的位置或路径。
+
+请考虑以下引用单个外部样式表的HTML文档&lt;head&gt;元素的示例。
+
+```
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+```
+
+为了正确呈现CSS，href属性值的路径必须直接与CSS文件保存位置相关联。在前面的例子中，main.css文件存储在与HTML文件相同的位置，也称为根目录。
+
+如果CSS文件位于子目录或子文件夹中，则href属性值需要相应地与此路径相关联。 例如，如果我们的main.css文件存储在名为stylesheets的子目录中，则href属性值将为stylesheets / main.css，使用正斜杠表示移动到子目录中。
+
+这时我们的页面开始慢慢变得生动。我们还没有深入研究CSS，但你可能已经注意到，某些元素具有我们尚未在CSS中声明的默认样式。这就是浏览器为这些元素强加了自己喜欢的CSS样式。幸运的是，我们可以轻易覆盖这些样式，这就是我们接下来要学习的使用CSS重置的方法。
+
+## 使用CSS重置
+
+每个Web浏览器都有自己的默认样式，用于不同的元素。 Google Chrome浏览器呈现标题、段落、列表等的方式可能与Internet Explorer的方式不同。为确保跨浏览器兼容性，CSS重置已被广泛使用。
+
+CSS重置采用预定义样式的每个常见HTML元素，并为所有浏览器提供统一样式。这些重置通常涉及删除任何大小、边距、填充或其他样式并调低这些值。因为CSS从上到下层层重叠，并会越来越多，所以我们的重置需要位于样式表的最顶部。这样做可确保首先读取这些样式，所有不同的Web浏览器都使用共同的基线。
+
+有许多不同的重置可供使用，所有这些都有自己的特长。最受欢迎的重置之一是Eric Meyer的重置，它已被改编为包含新HTML5元素的样式。
+
+如果您感觉更冒险，还有由Nicolas Gallagher创建的Normalize.css。 Normalize.css不关注对所有常用元素使用硬重置，而是为这些元素设置常用样式。它需要对CSS有更强的理解，以及对你喜欢的风格的认识。
+
+> #### 跨浏览器兼容性和测试
+>
+> 如前所述，不同的浏览器以不同的方式呈现元素。 认识到跨浏览器兼容性和测试的价值非常重要。网站不需要在每个浏览器中看起来完全相同，但应该很接近。你希望在何种程度上支持哪些浏览器，需要根据最适合您网站的内容做出决定。
+
+总而言之，在编写CSS时有一些注意事项。好消息是任何事情都是可能的，只要有一点耐心，我们就能全力以赴。
+
+## 实践
+
+回过头来看看我们在会议网站上最后停下来的地方，看看是否可以添加一些CSS。
+
+* 在我们的“styles-conference”文件夹中创建一个名为“assets”的新文件夹。我们将在此文件夹中存储我们网站的所有资源，例如样式表、图像、视频等。对于我们的样式表，让我们继续在“assets”文件夹中添加另一个名为“stylesheets”的文件夹。
+
+* 使用文本编辑器创建一个名为main.css的新文件，并将其保存在刚刚创建的“stylesheets”文件夹中。
+
+* 在Web浏览器中查看index.html文件，我们可以看到&lt;h1&gt;和&lt;p&gt;元素都具有默认的CSS样式。具体来说，它们每个都有独特的字体大小和周围的间距。使用Eric Meyer的重置，我们可以调整这些样式，允许每个样式从同一个基础设置。要做到这一点，让我们前往Eric的网站，复制它的重置，并将其粘贴到main.css文件的顶部。
+
+```
+/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+```
+
+* 随着main.css文件开始成形，让我们将它连接到我们的index.html文件。在我们的文本编辑器中打开index.html文件，让我们在&lt;head&gt;元素中添加&lt;link&gt;元素，在&lt;title&gt;元素之后。
+
+* 我们将引用&lt;link&gt;元素中的样式表，因此让我们使用样式表的值添加关系属性rel。
+
+* 我们还想使用href属性将超链接引用包含到main.css文件中。请记住我们的main.css文件保存在“stylesheets”文件夹中，该文件夹位于“assets”文件夹中。 因此，href属性值（我们的main.css文件的路径）必须是assets / stylesheets / main.css。
+
+```
+<head>
+  <meta charset="utf-8">
+  <title>Styles Conference</title>
+  <link rel="stylesheet" href="assets/stylesheets/main.css">
+</head>
+```
+
+是时候看看我们的工作，看看HTML和CSS是否相得益彰。现在，在Web浏览器中打开我们的index.html文件（或刷新页面，如果它已经打开）应该显示与以前略有不同的结果。
+
+## 演示和源代码
+
+你可以在下面查看当前状态下的Styles Conference网站，以及下载当前状态的网站源代码。
+
+## 总结
+
+到现在为止都很好。 我们在本课中取得了很大的进步。
+
+试想一下，现在你已经了解了HTML和CSS的基础知识。随着课程继续，你会花费更多时间编写HTML和CSS，将更加熟悉这两种语言。
+
+回顾一下，到目前为止，我们已经涵盖了以下内容：
+
+HTML和CSS之间的区别
+
+熟悉HTML元素，标签和属性
+
+设置第一个网页的结构
+
+熟悉CSS选择器，属性和值
+
+使用CSS选择器
+
+在HTML中引用CSS
+
+CSS的值重置
+
+现在让我们仔细看看HTML并学习一些关于语义的知识。
 
