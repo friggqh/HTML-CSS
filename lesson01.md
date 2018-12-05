@@ -58,5 +58,119 @@ HTML（超文本标记语言）通过将内容定义为标题、段落或图像�
 
 既然你已经了解了HTML元素、标签和属性，那么来看看我们的第一个网页。如果遇到新东西，不用担心，我们会一一解读它。
 
+## 设置HTML文档结构
+
+HTML文档是使用.html文件扩展名而不是.txt文件扩展名保存的纯文本文档。开始编写HTML时，你首先需要一个习惯使用的纯文本编辑器。其中并不包括Microsoft Word或Pages，它们是富文本编辑器。两个比较流行的编写HTML和CSS的纯文本编辑器是Dreamweaver和Sublime Text。免费替代品还包括适用于Windows的Notepad ++和适用于Mac的TextWrangler。
+
+所有HTML文档都具有必需的结构，包括以下声明和元素：&lt;！DOCTYPE html&gt;，&lt;html&gt;，&lt;head&gt;和&lt;body&gt;。
+
+文档类型声明或，&lt;！DOCTYPE html&gt;，通知Web浏览器正在使用HTML的哪个版本，并且放在HTML文档的最开头。由于我们使用的是最新版本的HTML，所以文档类型声明就是&lt;！DOCTYPE html&gt;。在文档类型声明之后，&lt;html&gt;元素表示文档的开头。
+
+在&lt;html&gt;元素内，&lt;head&gt;元素标识文档的顶部，包括任何元数据（有关页面的附带信息）。&lt;head&gt;元素内的内容不会显示在网页上。相反，它可能包括文档标题（显示在浏览器窗口的标题栏上），指向任何外部文件的链接或任何其他有益的元数据。
+
+网页中的所有可见内容都在&lt;body&gt;元素之内。典型HTML文档结构的细分如下所示：
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p>This is a web page.</p>
+  </body>
+</html>
+
+```
+
+上面的代码显示了以文档类型声明开头的文档&lt;！DOCTYPE html&gt;，后面直接跟着&lt;html&gt;元素。&lt;html&gt;元素内部是&lt;head&gt;和&lt;body&gt;元素。 &lt;head&gt;元素包括通过&lt;meta charset="utf-8"&gt;标记对页面进行字符编码，以及通过&lt;title&gt;元素对文档的标题进行字符编码。&lt;body&gt;元素包括通过&lt;h1&gt;元素的标题和通过&lt;p&gt;元素的段落。因为标题和段落都嵌套在&lt;body&gt;元素中，所以它们在网页上可见。
+
+当一个元素放在另一个元素（也称为嵌套元素）内部时，最好缩进该元素以使文档结构保持条理清晰。 在前面的代码中，&lt;head&gt;和&lt;body&gt;元素都嵌套在&lt;html&gt;元素内并缩进。 在&lt;head&gt;和&lt;body&gt;元素内添加新元素时，元素也会继续缩进模式。
+
+> #### 自闭元素
+>
+> 在前面的例子中，&lt;meta&gt;元素只有一个标签，并且不包含结束标签。别怕，这是有原因的。 并非所有元素都包含开始和结束标签。 有些元素只是从单个标签内的属性接收内容或行为。&lt;meta&gt;元素是其中之一，使用charset属性和值分配前一个&lt;meta&gt;元素的内容。 其他常见的自闭元素有：
+>
+> &lt;br&gt; &lt;embed&gt; &lt;hr&gt; &lt;img&gt; &lt;input&gt; &lt;link&gt; &lt;meta&gt; &lt;param&gt; &lt;source&gt; &lt;wbr&gt;
+>
+> 这里略述的结构使用&lt;！DOCTYPE html&gt;文档类型和&lt;html&gt;、&lt;head&gt;和&lt;body&gt;元素，是很常见的。我们希望保持这种文档结构的便利，因为我们在创建新的HTML文档时经常使用它。
+
+> #### 代码验证
+>
+> 无论我们在编写代码时多么小心，我们都不可避免地会犯错误。庆幸的是，在编写HTML和CSS时，我们有验证器来检查我们的工作。 W3C已经构建了HTML和CSS验证器，可以扫描代码的错误之处。验证代码不仅有助于它在正确呈现在所有浏览器中，也时有助于我们编写代码的最佳实践方法。
+
+## 实践
+
+作为网页设计师和前端开发人员，我们可以参加一系列专注于技术的大型会议。我们将开展自己的会议、样式会议，并在下面的课程中构建一个网站。开始了！
+
+* 打开文本编辑器，创建一个名为index.html的新文件，并保存到一个不会忘记的位置。我要在桌面上创建一个名为“styles-conference”的文件夹并将其保存在那里；自行做出相同的事。
+
+* 在index.html文件中添加文档结构，包括&lt;！DOCTYPE html&gt;文档类型和&lt;html&gt;、&lt;head&gt;和&lt;body&gt;元素。
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+* 在&lt;head&gt;元素内添加&lt;meta&gt;和&lt;title&gt;元素。&lt;meta&gt;元素应该包含正确的charset属性和值，而&lt;title&gt;元素应该包含页面的标题——比例如“样式会议”。
+
+```
+<head>
+  <meta charset="utf-8">
+  <title>Styles Conference</title>
+</head>
+```
+
+* 在&lt;body&gt;元素内添加&lt;h1&gt;和&lt;p&gt;元素。&lt;h1&gt;元素应该包括我们希望包含的标题——再次使用“样式会议”。&lt;p&gt;元素应该包含一个简单的段落来介绍我们的会议。
+
+```
+<body>
+  <h1>Styles Conference</h1>
+  <p>Every year the brightest web designers and front-end developers descend on Chicago to discuss the latest technologies. Join us this August!</p>
+</body>
+```
+
+是时候看看我们做得如何了。我们找到index.html文件（我的文件位于桌面上的“styles-conference”文件夹中），双击此文件或将其拖入Web浏览器，打开它以供我们查看。
+
+让我们稍微改变一下，离开HTML，看看CSS。请记住，HTML将定义网页的内容和结构，而CSS将定义网页的样式和外观。
+
+## 了解常见的CSS术语
+
+除了HTML术语之外，还有一些常见的CSS术语，你需要熟悉它们。这些术语包括选择器、属性和值。与HTML术语一样，使用CSS越多，这些术语就会越熟悉。
+
+### 选择器
+
+当元素添加到网页时，可以使用CSS设置样式。选择器准确地指定HTML中要定位的元素，并应用样式（如颜色，大小和位置）。选择器可以包括不同限定符的组合以选择独特元素，这些都取决于我们的希望程度。例如，我们想选择页面上的每个段落，或者只想在页面上选择一个特定段落。
+
+选择器通常以属性值为目标，例如id或类值，或者以元素类型为目标，例如&lt;h1&gt;或&lt;p&gt;。
+
+在CSS中，选择器后跟大括号{}，其中包含要应用于所选元素的样式。 此处的选择器定位所有&lt;p&gt;元素。
+
+```
+p { ... }
+```
+
+### 属性
+
+选择元素后，属性会确定应用于该元素的样式。属性名称位于选择器之后，在大括号{}内，冒号：之前。我们可以使用许多属性，例如背景、颜色，字体大小，高度和宽度，并且通常会添加新属性。下面的代码定义了要应用于所有&lt;p&gt;元素的颜色和字体大小属性。
+
+```
+p {
+  color: ...;
+  font-size: ...;
+}
+```
+
+### 值
+
+目前我们已经选择了一个带选择器的元素，并确定了我们想要使用的属性的样式。现在我们可以使用值来确定该属性的表现。值可以标识为冒号，：和分号之间的文本;。 这里我们选择所有&lt;p&gt;元素，并将color属性的值设置为橙色，将font-size属性的值设置为16像素。
+
 
 
