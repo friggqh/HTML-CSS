@@ -54,7 +54,7 @@ HTML（超文本标记语言）通过将内容定义为标题、段落或图像�
 <a href="http://shayhowe.com/">Shay Howe</a>
 ```
 
-上面的代码会在网页上显示文本“Shay Howe”，并在点击“Shay Howe”文本时进入 http:/ /shayhowe.com/。使用包含文本的开始标签&lt;a&gt;和结束标签&lt;/a&gt;围绕文本，并且在开始标签中用href="http://shayhowe.com"说明超链接的引用属性和值。
+上面的代码会在网页上显示文本“Shay Howe”，并在点击“Shay Howe”文本时进入 http:/ /shayhowe.com/。使用包含文本的开始标签&lt;a&gt;和结束标签&lt;/a&gt;围绕文本，并且在开始标签中用href="http:/ /shayhowe.com"说明超链接的引用属性和值。
 
 既然你已经了解了HTML元素、标签和属性，那么来看看我们的第一个网页。如果遇到新东西，不用担心，我们会一一解读它。
 
