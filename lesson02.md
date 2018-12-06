@@ -166,7 +166,7 @@
 
 ### section（部分）
 
-&lt;section&gt;元素用于标识内容的主题分组，通常但不总是包括标题。 &lt;section&gt;元素内的内容分组在本质上可能是通用的，但将所有内容标识为相关内容很有用。
+&lt;section&gt;元素用于标识内容的主题分组，通常但不总是包括标题。 &lt;section&gt;元素内的内容分组在本质上可能是通用的，但将所有内容标识为相关内容很有用。
 
 &lt;section&gt;元素通常用于分解并为页面提供层次结构。
 
@@ -226,7 +226,8 @@
 </section>
 ```
 
-* 会议介绍之后，添加另一组内容来梳理我们将要添加的几个页面，特别是演讲者、日程表和场地页面。我们整理的每个页面也应该位于相应的部分中，并包含支持文本。  我们将结果分组到&lt;section&gt;元素中，单独的梳理也将包含在&lt;section&gt;元素中。 总之，我们在另一个&lt;section&gt;元素中有三个&lt;section&gt;元素。
+* 会议介绍之后，添加另一组内容来梳理我们将要添加的几个页面，特别是演讲者、日程表和场地页面。我们整理的每个页面也应该位于相应的部分中，并包含支持文本。
+  我们将结果分组到&lt;section&gt;元素中，单独的梳理也将包含在&lt;section&gt;元素中。 总之，我们在另一个&lt;section&gt;元素中有三个&lt;section&gt;元素。
 
 ```
 <section>
@@ -242,7 +243,8 @@
 </section>
 ```
 
-* 最后，让我们在末尾的&lt;footer&gt;元素中添加我们的版权。为此，我们使用&lt;small&gt;元素，它在语义上代表了侧面注释和小版本，  通常，&lt;small&gt;元素中的内容将呈现为小，但我们的CSS重置将阻止这种情况发生。
+* 最后，让我们在末尾的&lt;footer&gt;元素中添加我们的版权。为此，我们使用&lt;small&gt;元素，它在语义上代表了侧面注释和小版本，
+  通常，&lt;small&gt;元素中的内容将呈现为小，但我们的CSS重置将阻止这种情况发生。
 
 ```
 <footer>
@@ -302,19 +304,149 @@
 
 要创建电子邮件链接，href属性值需要以mailto：开头，后跟邮件将发送到的电子邮件地址。例如，要创建到shay@awesome.com的电子邮件链接，href属性值将为mailto：shay@awesome.com。
 
+另外，可以填充电子邮件的主题、正文和其他信息。要添加主题行，我们要在电子邮件地址后面加上subject =参数。电子邮件地址后面的第一个参数必须以问号“？”开头，以将其绑定到超链接路径。主题行中的多个单词要求使用％20对空格进行编码。
 
+添加正文文本的方式与主题相同，使用href属性值中的body =参数。因为我们将一个参数绑定到另一个参数，所以我们需要使用＆符号来分隔两者。与主题一样，空格必须使用％20进行编码，并且必须使用％0A对换行符进行编码。
 
-另外，可以填充电子邮件的主题，正文和其他信息。要添加主题行，我们将在电子邮件地址后面加上subject =参数。电子邮件地址后面的第一个参数必须以问号“？”开头，以将其绑定到超链接路径。主题行中的多个单词要求使用％20对空格进行编码。
+总而言之，链接到shay@awesome.com的主题为“伸出”和正文“你好吗”需要一个href属性值：
 
-
-
-添加正文文本的方式与添加主题相同，这次使用href属性值中的body =参数。因为我们将一个参数绑定到另一个参数，所以我们需要使用＆符号来分隔两者。与主题一样，空格必须使用％20进行编码，并且必须使用％0A对换行符进行编码。
-
-
-
-总而言之，链接到shay@awesome.com的主题为“伸出”和正文“你好吗”需要一个href属性值mailto：shay@awesome.com？subject =达到％20Out＆body =如何％ 20顷％20you。
-
-
+mailto:shay@awesome.comsubject=Reaching%20Out&body=How%20are%20you.
 
 这是完整的细分：
+
+```
+<a href="mailto:shay@awesome.com?subject=Reaching%20Out&body=How%20are%20you">Email Me</a>
+```
+
+### 在新窗口中打开链接
+
+超链接可用的一个功能是确定单击时链接打开的位置。 通常，链接在同一网页打开，但是，链接也可以在新窗口中打开。
+
+要在新窗口中打开链接，请使用值为\_blank的target属性。target属性确切地确定了链接的显示位置，\_ blank属性指定了一个新窗口。
+
+要在新窗口中打开http:/ /shayhowe.com/，代码将如下所示：
+
+```
+<a href="http://shayhowe.com/" target="_blank">Shay Howe</a>
+```
+
+### 链接到同一页面的部分
+
+我们经常看到链接到同一页面部分的超链接。这些相同页面链接的常见示例是“返回顶部”链接，用于将用户返回到页面顶部。
+
+我们可以通过在我们希望链接到的元素上设置id属性，然后在anchor元素的href属性中使用该id属性的值来创建页面链接。
+
+以“回到顶部”链接为例，我们可以在&lt;body&gt;元素上放置一个id属性值top。 现在我们可以创建一个href属性值为＃top，pound sign和all的锚元素，以链接到&lt;body&gt;元素的开头。
+
+我们这个同页链接的代码如下所示：
+
+```
+<body id="top">
+  ...
+  <a href="#top">Back to top</a>
+  ...
+</body>
+```
+
+超链接非常有用，并彻底改变了我们使用互联网的方式。到目前为止，我们已经介绍了如何链接到其他页面或网站，以及如何创建电子邮件链接和指向同一页面部分的链接。让我们创建一些自己的链接。
+
+## 实践中
+
+现在是时候将样式会议从单页网站带到一个包含多个页面的成熟网站，所有这些网站都将使用超链接链接在一起。
+
+* 我们首先在我们的&lt;header&gt;元素链接中的&lt;h1&gt;元素内部创建“样式会议”文本到index.html页面。  因为我们已经在index.html页面上，所以这看起来有点奇怪，但这是正确的。当标题在其他页面上复制时，链接回主页将是有意义的。
+
+```
+<h1>
+  <a href="index.html">Styles Conference</a>
+</h1>
+```
+
+* 为了浏览所有不同的页面，我们将在&lt;header&gt;元素中使用&lt;nav&gt;元素添加导航菜单。我们将创建扬声器、时间表、地点和注册页面，与我们的主页一起使用，因此我们应该为所有这些页面创建链接。
+
+```
+<header>
+
+  ...
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="speakers.html">Speakers</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="venue.html">Venue</a>
+    <a href="register.html">Register</a>
+  </nav>
+
+</header>
+```
+
+* 方便起见，我们还将&lt;header&gt;元素中的相同导航菜单添加到&lt;footer&gt;元素中。
+
+```
+<footer>
+
+  ...
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="speakers.html">Speakers</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="venue.html">Venue</a>
+    <a href="register.html">Register</a>
+  </nav>
+
+</footer>
+```
+
+* 在介绍会议的&lt;section&gt;元素中，标题下方还应该包含一个注册会议的链接。在段落下方放置一个链接。
+
+```
+<section>
+
+  ...
+
+  <a href="register.html">Register Now</a>
+
+</section>
+```
+
+* 不要忘记添加指向我们其他页面的所有部分的链接。在每个部分中，让我们将&lt;h3&gt;和&lt;h5&gt;元素包含在链接到正确页面的锚元素中。  我们要确保相应地为每个部分执行此操作。
+
+```
+<section>
+
+  <section>
+    <a href="speakers.html">
+      <h5>Speakers</h5>
+      <h3>World-Class Speakers</h3>
+    </a>
+    <p>Joining us from all around the world are over twenty fantastic speakers, here to share their stories.</p>
+  </section>
+
+  ...
+
+</section>
+```
+
+* 现在我们需要创建一些新页面。 让我们创建speakers.html，schedule.html，venue.html和register.html文件。这些文件应该与index.html文件位于同一文件夹中，并且，因为保存在同一文件夹中，所以所有的链接都应该按预期工作。  为了确保所有页面看起来都一样，这些新文件都应该具有相同的文档结构，&lt;header&gt;和&lt;footer&gt;元素作为index.html文件。
+
+这是官方的，我们不再使用单页，而是一个完整的网站。
+
+## 总结
+
+本课程中讨论的语义对于为HTML提供结构和含义至关重要。我们将定期推出新元素，所有这些元素都具有自己的语义含义，这将为我们的内容提供最大的价值。
+
+在本课中，我们再次讨论了以下内容：
+
+什么是语义？为什么它们很重要？
+
+&lt;div&gt; s和&lt;spans&gt; s，以及块级和内联元素之间的区别；
+
+哪些文本元素最能表示页面的内容；
+
+HTML5结构元素以及如何定义内容和页面的结构和组织；
+
+如何使用超链接在网页或网站之间导航；
+
+还有很多东西值得学习，但基础已经到位。接下来，我们将深入研究CSS。
 
