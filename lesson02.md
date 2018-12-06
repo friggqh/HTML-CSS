@@ -354,7 +354,8 @@ mailto:shay@awesome.comsubject=Reaching%20Out&body=How%20are%20you.
 
 现在是时候将样式会议从单页网站带到一个包含多个页面的成熟网站，所有这些网站都将使用超链接链接在一起。
 
-* 我们首先在我们的&lt;header&gt;元素链接中的&lt;h1&gt;元素内部创建“样式会议”文本到index.html页面。  因为我们已经在index.html页面上，所以这看起来有点奇怪，但这是正确的。当标题在其他页面上复制时，链接回主页将是有意义的。
+* 我们首先在我们的&lt;header&gt;元素链接中的&lt;h1&gt;元素内部创建“样式会议”文本到index.html页面。
+  因为我们已经在index.html页面上，所以这看起来有点奇怪，但这是正确的。当标题在其他页面上复制时，链接回主页将是有意义的。
 
 ```
 <h1>
@@ -410,7 +411,8 @@ mailto:shay@awesome.comsubject=Reaching%20Out&body=How%20are%20you.
 </section>
 ```
 
-* 不要忘记添加指向我们其他页面的所有部分的链接。在每个部分中，让我们将&lt;h3&gt;和&lt;h5&gt;元素包含在链接到正确页面的锚元素中。  我们要确保相应地为每个部分执行此操作。
+* 不要忘记添加指向我们其他页面的所有部分的链接。在每个部分中，让我们将&lt;h3&gt;和&lt;h5&gt;元素包含在链接到正确页面的锚元素中。
+  我们要确保相应地为每个部分执行此操作。
 
 ```
 <section>
@@ -428,7 +430,8 @@ mailto:shay@awesome.comsubject=Reaching%20Out&body=How%20are%20you.
 </section>
 ```
 
-* 现在我们需要创建一些新页面。 让我们创建speakers.html，schedule.html，venue.html和register.html文件。这些文件应该与index.html文件位于同一文件夹中，并且，因为保存在同一文件夹中，所以所有的链接都应该按预期工作。  为了确保所有页面看起来都一样，这些新文件都应该具有相同的文档结构，&lt;header&gt;和&lt;footer&gt;元素作为index.html文件。
+* 现在我们需要创建一些新页面。 让我们创建speakers.html，schedule.html，venue.html和register.html文件。这些文件应该与index.html文件位于同一文件夹中，并且，因为保存在同一文件夹中，所以所有的链接都应该按预期工作。
+  为了确保所有页面看起来都一样，这些新文件都应该具有相同的文档结构，&lt;header&gt;和&lt;footer&gt;元素作为index.html文件。
 
 这是官方的，我们不再使用单页，而是一个完整的网站。
 
@@ -446,7 +449,7 @@ mailto:shay@awesome.comsubject=Reaching%20Out&body=How%20are%20you.
 
 HTML5结构元素以及如何定义内容和页面的结构和组织；
 
-如何使用超链接在网页或网站之间导航；
+如何使用超链接在网页或网站之间导航。
 
 还有很多东西值得学习，但基础已经到位。接下来，我们将深入研究CSS。
 
